@@ -1,0 +1,19 @@
+{% extends "bootstrap/base.html" %}
+
+{% block content%}
+<form action="#" enctype="multipart/form-data" method="post">
+
+
+    <div class="form-group">
+      <label for="photoname">圖片::</label>
+      <p></p>
+      <input name="img" type="file"/>
+      <p></p>
+      <label for="username">內容:</label>
+      <input id="username" class="form-control" type="text" name="nm" />
+    </div>
+    <div class="form-group">
+      <button type="submit" class="btn btn-dark">Submit</button>
+    </div>
+  </form>
+{% endblock %}
