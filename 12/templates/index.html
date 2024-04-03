@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block content %}
+     <div class="container">
+            <h1>{% block title %} -產品列表- {% endblock %}</h1>          
+            <table class="table table-striped table-hover">
+                <tr class="table-dark">
+                  <td>編號</td>
+                  <td>名稱</td>
+                  <td>價格</td>
+                  <td>圖片</td>                  
+                  <td>編輯</td>
+                  <td>刪除</td>
+                </tr>
+                {% for post in posts %}   
+                <tr class="table-primary">
+                  <td>{{ post['id'] }}</td>
+                  <td>{{ post['name'] }}</td>
+                  <td>{{ post['price'] }}</td>                  
+                  <td><img src="{{ url_for('static', filename='uploads/'+post['image']) }}" alt="{{post.image}}" width="100px"></td>
+                  <td><a href="{{ url_for('edit', id=post['id']) }}" class="link-danger">編輯</a></td>
+                  <td><form action="{{ url_for('delete', id=post['id']) }}" method="POST">
+                    <input type="submit" value="刪除"
+                            onclick="return confirm('確定刪除?')"
+                            class="btn btn-primary mb-3">
+                      </form></td>              
+                </tr>
+                {% endfor %}
+              </table>
+            </div>
+{% endblock %}

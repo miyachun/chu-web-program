@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block content %}
+
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+<ul class="flash">
+    {% for message in messages %}
+        <li>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+{% endwith %}
+
+
+<div class="container" >
+    <h1>{% block title %} -新增產品- {% endblock %}</h1>
+    <form  enctype="multipart/form-data" method="POST">
+        <div class="mb-3">
+            <label for="id" class="form-label" >編號</label>
+            <input type="text" class="form-control " name="id" value="{{ request.form['id'] }}" placeholder="輸入數字">            
+        </div>
+        <div class="mb-3">
+            <label for="name" class="form-label">名稱</label>
+            <input type="text" class="form-control" name="name" value="{{ request.form['name'] }}">            
+        </div>
+        <div class="mb-3">
+            <label for="price" class="form-label">價格</label>
+            <input type="text" class="form-control" name="price" value="{{ request.form['price'] }}">            
+        </div>
+        <div class="mb-3">
+        <label for="image">圖片</label>       
+        <input name="image" type="file"/>            
+         </div>
+         <div class="mb-3">
+         <button type="submit" class="btn btn-primary mb-3">Submit</button>
+        </div>
+    </form>
+</div>
+    
+{% endblock %}

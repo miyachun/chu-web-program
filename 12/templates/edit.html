@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container" >
+     <h1>{% block title %} -編輯- "{{ post['name'] }}" {% endblock %}</h1>
+     <form  enctype="multipart/form-data" method="POST">
+        <div class="mb-3">
+            <label for="name" class="form-label">名稱</label>
+            <input type="text" class="form-control" name="name" value="{{ request.form['name'] or post['name'] }}">            
+        </div>
+        <div class="mb-3">
+            <label for="price" class="form-label">價格</label>
+            <input type="text" class="form-control" name="price" value="{{ request.form['price'] or post['price'] }}">            
+        </div>
+        <div class="mb-3">
+        <img src="{{ url_for('static', filename='uploads/'+post['image']) }}" alt="{{post.image}}" width="100px">
+         </div>
+        <div class="mb-3">
+        <label for="image">圖片</label>       
+        <input name="image" type="file"/>            
+         </div>
+         <div class="mb-3">
+         <button type="submit" class="btn btn-primary mb-3">Submit</button>
+        </div>
+    </form>
+</div>    
+{% endblock %}
