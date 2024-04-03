@@ -8,8 +8,8 @@
             <input type="text" class="form-control" name="name" value="{{ request.form['name'] or post['name'] }}">            
         </div>
         <div class="mb-3">
-            <label for="price" class="form-label">內容</label>
-            <input type="text" class="form-control" name="price" value="{{ request.form['price'] or post['price'] }}">            
+            <label for="content" class="form-label">內容</label>
+            <input type="text" class="form-control" name="content" value="{{ request.form['content'] or post['content'] }}">            
         </div>
         <div class="mb-3">
         <img src="{{ url_for('static', filename='uploads/'+post['image']) }}" alt="{{post.image}}" width="100px">
