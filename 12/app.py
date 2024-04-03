@@ -29,7 +29,7 @@ def create():
     if request.method == 'POST':
         id = request.form['id']
         name = request.form['name']
-        price = request.form['price']   
+        content = request.form['content']   
         image = request.files['image']
         filename = secure_filename(image.filename) 
 
@@ -37,21 +37,21 @@ def create():
             flash('id無填')
         elif not name :
             flash('name無填')
-        elif not price :
-            flash('price無填')
+        elif not content :
+            flash('content無填')
         elif not filename:
             nopic='no.jpg'
             conn = get_db_connection()
-            conn.execute('INSERT INTO COMPANY (id, name, price, image, time ) VALUES (?, ?, ?, ?, ?)',
-                         (id, name, price, nopic, Mnow ))
+            conn.execute('INSERT INTO COMPANY (id, name, content, image, time ) VALUES (?, ?, ?, ?, ?)',
+                         (id, name, content, nopic, Mnow ))
             conn.commit()
             conn.close()
             return redirect(url_for('index'))
         else:
             image.save(os.path.join(app.config['UPLOAD'], filename))
             conn = get_db_connection()
-            conn.execute('INSERT INTO COMPANY (id, name, price, image, time ) VALUES (?, ?, ?, ?, ?)',
-                         (id, name, price, filename, Mnow ))
+            conn.execute('INSERT INTO COMPANY (id, name, content, image, time ) VALUES (?, ?, ?, ?, ?)',
+                         (id, name, content, filename, Mnow ))
             conn.commit()
             conn.close()
             return redirect(url_for('index'))
@@ -75,16 +75,16 @@ def edit(id):
 
     if request.method == 'POST':        
         name = request.form['name']
-        price = request.form['price']        
+        content = request.form['content']        
         image = request.files['image']
         filename = secure_filename(image.filename)
         
         print(filename)
         if not filename:
             conn = get_db_connection()
-            conn.execute('UPDATE COMPANY SET name = ?, price = ?'
+            conn.execute('UPDATE COMPANY SET name = ?, content = ?'
                          ' WHERE id = ?',
-                         ( name, price, id))
+                         ( name, content, id))
 
             conn.commit()
             conn.close()
@@ -93,9 +93,9 @@ def edit(id):
         else:
             image.save(os.path.join(app.config['UPLOAD'], filename))
             conn = get_db_connection()
-            conn.execute('UPDATE COMPANY SET name = ?, price = ?, image = ?'
+            conn.execute('UPDATE COMPANY SET name = ?, content = ?, image = ?'
                          ' WHERE id = ?',
-                         ( name, price, filename, id))
+                         ( name, content, filename, id))
 
             conn.commit()
             conn.close()
