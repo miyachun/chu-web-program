@@ -1,5 +1,5 @@
 -虛擬環境安裝-  
-  
+
 1->環境變數  
 C:\Users\C4\AppData\Local\Programs\Python\Python312\Scripts  
 C:\Users\C4\AppData\Local\Programs\Python\Python312  
@@ -14,7 +14,7 @@ activate
 
 -相關-  
 virtualenv->virtualenv -p python3.10 XXX  
-https://flask.palletsprojects.com/en/3.0.x/  
+flask->https://flask.palletsprojects.com/en/3.0.x/  
 sqlitebrowser->https://sqlitebrowser.org/dl/  
 line_develop->https://developers.line.biz/zh-hant/  
 ngrok->https://ngrok.com/  
