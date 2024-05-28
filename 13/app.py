@@ -4,10 +4,9 @@ from linebot.exceptions import InvalidSignatureError
 from linebot.models import MessageEvent, TextMessage, TextSendMessage
 import random
 app = Flask(__name__)
-#line_bot_api = LineBotApi('LINE_CHANNEL_ACCESS_TOKEN')
-#line_handler = WebhookHandler('LINE_CHANNEL_SECRET')
-line_bot_api = LineBotApi('Kn/qq4TXdnH1+2epazdNTeGeA5DopMr9kUlSffK+P+xyKQ7e0OHlAzY56y5FOrFqzS3Hytsn0REHFj03OfPffoCwbOntdhtkn+a/9VsnpZKbQqX2w79XhGAFbUZ+Hn6xL8qgNPmnKniHriMrnriQBwdB04t89/1O/w1cDnyilFU=')
-line_handler = WebhookHandler('1a25e2c5a08c224d76f7053db6f9be9c')
+line_bot_api = LineBotApi('LINE_CHANNEL_ACCESS_TOKEN')
+line_handler = WebhookHandler('LINE_CHANNEL_SECRET')
+
 @app.route('/')
 def home():
     return 'Hello World'
