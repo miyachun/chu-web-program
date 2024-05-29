@@ -18,3 +18,5 @@ flask->https://flask.palletsprojects.com/en/3.0.x/
 sqlitebrowser->https://sqlitebrowser.org/dl/  
 line_develop->https://developers.line.biz/zh-hant/  
 ngrok->https://ngrok.com/  
+天氣資料開放平壹->https://opendata.cwa.gov.tw/index  
+https://opendata.cwa.gov.tw/api/v1/rest/datastore/F-C0032-001?Authorization=(API_Key)&format=JSON  
