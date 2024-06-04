@@ -12,7 +12,6 @@ line_bot_api = LineBotApi("LINE_CHANNEL_ACCESS_TOKEN")
 line_handler = WebhookHandler("LINE_CHANNEL_SECRET")
 url ='https://opendata.cwa.gov.tw/api/v1/rest/datastore/F-C0032-001?Authorization=XXXXXXXXXX&format=JSON'
 
-
 ansA=[]
 city=''
 
